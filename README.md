@@ -10,7 +10,8 @@ services:
   tailscale:
     build:
       dockerfile: Dockerfile.template
-    privileged: true
+    cap_add:
+      - NET_ADMIN
     network_mode: host
     command: -hostname=my-node
     environment:
